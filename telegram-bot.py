@@ -1,3 +1,4 @@
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
 
@@ -15,7 +16,7 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(chat_id=update.effective_chat.id, text=WELCOME_MESSAGE)
 
 def main():
-    TOKEN = "7267007846:AAEQcXIs2b3VHaKDMNZCYL4ARcBMCUq_cBg"
+    TOKEN = os.environ["TOKEN"]
 
     app = ApplicationBuilder().token(TOKEN).build()
 
